@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b14" />
+    <title>Jarvis — Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#"><span class="brand-mark">J</span><span>JARVIS</span></a>
+        <div class="status"><i></i> SYSTEMS NOMINAL</div>
+        <button class="profile" aria-label="Open profile">JD</button>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">PERSONAL AI OPERATIONS</div>
+        <h1>Your work, <em>amplified.</em></h1>
+        <p>Talk naturally. Jarvis captures your context and turns intent into focused execution.</p>
+      </section>
+
+      <section class="command-grid" aria-label="Voice command center">
+        <article class="voice-panel panel">
+          <div class="panel-label"><span class="pulse"></span> VOICE CONSOLE</div>
+          <div class="orb-wrap"><button id="listenButton" class="orb" aria-label="Start listening"><span class="orb-core">⌁</span></button></div>
+          <h2 id="voiceTitle">Ready when you are.</h2>
+          <p id="voiceCopy">Tap the signal to give Jarvis a task.</p>
+          <div class="transcript" id="transcript" aria-live="polite">“Try: Review my pull request and find security issues.”</div>
+          <div class="voice-actions">
+            <button class="secondary" id="sampleButton">Use example</button>
+            <button class="primary" id="sendButton" disabled>Send request <span>↗</span></button>
+          </div>
+        </article>
+
+        <article class="capture-panel panel">
+          <div class="panel-top"><div class="panel-label">CONTEXT CAPTURE</div><span id="recordingStatus">IDLE</span></div>
+          <div class="camera-preview" id="cameraPreview">
+            <video id="camera" autoplay muted playsinline></video>
+            <div class="preview-empty"><span>◉</span><strong>Camera is off</strong><small>Capture visual context when it matters.</small></div>
+            <div class="record-chip" id="recordChip"><i></i> REC <span id="timer">00:00</span></div>
+          </div>
+          <div class="capture-actions">
+            <button class="capture-button" id="captureButton"><span class="record-dot"></span><span id="captureLabel">Start capture</span></button>
+            <button class="icon-button" id="stopCameraButton" aria-label="Stop camera" disabled>□</button>
+          </div>
+          <p class="privacy-note">You control each capture. When the local server is running, recordings stay on this device.</p>
+        </article>
+      </section>
+
+      <section class="agents-heading"><div><div class="eyebrow">SPECIALIST CREW</div><h2>One command. The right expert.</h2></div><button class="secondary">Manage agents →</button></section>
+      <section class="agent-grid">
+        <article class="agent-card coding"><div class="agent-icon">&lt;/&gt;</div><div><h3>Code partner</h3><p>Plan, build, review, and explain your codebase.</p></div><button class="run-agent" data-agent="Code partner">Run agent <span>→</span></button></article>
+        <article class="agent-card security"><div class="agent-icon">◇</div><div><h3>Security scout</h3><p>Map authorized targets and help triage findings.</p></div><button class="run-agent" data-agent="Security scout">Run agent <span>→</span></button></article>
+        <article class="agent-card memory"><div class="agent-icon">◌</div><div><h3>Research memory</h3><p>Record, transcribe, and surface decisions on demand.</p></div><button class="run-agent" data-agent="Research memory">Run agent <span>→</span></button></article>
+      </section>
+
+      <section class="activity panel"><div class="activity-title"><div><div class="panel-label">LIVE ACTIVITY</div><h2>Mission control</h2></div><button id="clearActivity" class="text-button">Clear</button></div><ol id="activityList"><li><time>NOW</time><span class="activity-dot"></span><p>Jarvis is standing by for your next command.</p></li></ol></section>
+    </main>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
